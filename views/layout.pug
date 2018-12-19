@@ -1,0 +1,44 @@
+doctype html
+html
+    head
+        title The Traversy App
+        link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/customstyle.css")
+    body
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+            a.navbar-brand(href='/') Articles and More
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.nav-link(href='/') | Home 
+                            span.sr-only (current)
+                    if user
+                        li.nav-item
+                            a.nav-link(href='/articles/add') Add Article
+                ul.nav.navbar-nav.navbar-right
+                    if user
+                        li.nav-item
+                            a.nav-link(href='/users/logout') Logout
+                    else
+                        li.nav-item
+                            a.nav-link(href='/users/register') Register
+                        li.nav-item
+                            a.nav-link(href='/users/login') Login
+                    
+
+        .container
+            != messages('message', locals)
+            if errors
+                each error in errors 
+                    div(class="mt-3 alert alert-danger") #{error.msg}
+            block content
+            br
+            hr
+            footer
+                p Copyright &copy; 2018
+        script(src="/bower_components/jquery/dist/jquery.min.js")
+        script(src="/bower_components/popper.js/dist/popper.js")
+        script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
+        script(src="/js/main.js")

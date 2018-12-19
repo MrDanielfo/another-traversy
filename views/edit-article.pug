@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1.mt-3 #{title}
+
+    form(method='POST', action='/articles/edit/' + article.id)
+        #form-group
+            label Title:
+            input.form-control(name='title', type='text', value=article.title)
+        #form-group
+            label Author:
+            input.form-control(name='author', type='text' value=author )
+        #form-group
+            label Body:
+            textarea.form-control(name='body')= article.body
+        input.mt-3.btn.btn-warning(type='submit', value='Edit')

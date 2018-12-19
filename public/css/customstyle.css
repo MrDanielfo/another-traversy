@@ -1,0 +1,11 @@
+.alert-error {
+    background-color: tomato;
+    color: white;
+    border-color: black; 
+}
+
+.alert-success_msg {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border-color: black; 
+}   
